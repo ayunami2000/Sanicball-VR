@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 11438192}
   - component: {fileID: 11478396}
   - component: {fileID: 9588452}
+  - component: {fileID: 5796458822776854293}
   m_Layer: 5
   m_Name: ButtonControl
   m_TagString: Untagged
@@ -245,6 +246,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &5796458822776854293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 608, y: 38, z: 1}
+  m_Center: {x: -304, y: 0, z: 0}
 --- !u!1 &198704
 GameObject:
   m_ObjectHideFlags: 0

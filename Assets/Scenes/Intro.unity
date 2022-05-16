@@ -1120,6 +1120,7 @@ GameObject:
   - component: {fileID: 1665387398}
   - component: {fileID: 1665387397}
   - component: {fileID: 1665387396}
+  - component: {fileID: 1665387399}
   m_Layer: 5
   m_Name: InputField
   m_TagString: Untagged
@@ -1254,6 +1255,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665387394}
   m_CullTransparentMesh: 0
+--- !u!65 &1665387399
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665387394}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 300, y: 40, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1972757353
 GameObject:
   m_ObjectHideFlags: 0
