@@ -77,7 +77,7 @@ namespace Sanicball.UI
             holdImageTimer += imgTime;
         }
 
-        private void GoToMenu()
+        public void GoToMenu()
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
             isHoldingImage = true;
