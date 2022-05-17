@@ -88,17 +88,17 @@ namespace Sanicball
 
         public static bool IsRespawning(ControlType ctrlType)
         {
-            return SteamVR_Actions.sanicball_Respawn.state;
+            return SteamVR_Actions.sanicball_Respawn.state && !SteamVR_Actions.sanicball_Respawn.lastState;
         }
 
         public static bool IsOpeningMenu(ControlType ctrlType)
         {
-            return SteamVR_Actions.sanicball_Select.state;
+            return SteamVR_Actions.sanicball_Select.state && !SteamVR_Actions.sanicball_Select.lastState;
         }
 
         public static bool IsChangingSong()
         {
-            return SteamVR_Actions.sanicball_Next_Track.state;
+            return SteamVR_Actions.sanicball_Next_Track.state && !SteamVR_Actions.sanicball_Next_Track.lastState;
         }
 
         public static bool IsOpeningChat()
