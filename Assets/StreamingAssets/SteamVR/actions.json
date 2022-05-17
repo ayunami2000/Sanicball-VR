@@ -16,7 +16,7 @@
       "requirement": "mandatory"
     },
     {
-      "name": "/actions/sanicball/in/Repawn",
+      "name": "/actions/sanicball/in/Respawn",
       "type": "boolean",
       "requirement": "mandatory"
     },

@@ -41,11 +41,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean Repawn
+        public virtual SteamVR_Action_Boolean Respawn
         {
             get
             {
-                return SteamVR_Actions.sanicball_Repawn;
+                return SteamVR_Actions.sanicball_Respawn;
             }
         }
         

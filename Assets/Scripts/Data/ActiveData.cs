@@ -18,7 +18,6 @@ namespace Sanicball.Data
         //This data is saved to a json file
         private GameSettings gameSettings = new GameSettings();
 
-        private KeybindCollection keybinds = new KeybindCollection();
         private MatchSettings matchSettings = MatchSettings.CreateDefault();
 
         //This data is set from the editor and remains constant
@@ -48,7 +47,6 @@ namespace Sanicball.Data
         #region Properties
 
         public static GameSettings GameSettings { get { return instance.gameSettings; } }
-        public static KeybindCollection Keybinds { get { return instance.keybinds; } }
         public static MatchSettings MatchSettings { get { return instance.matchSettings; } set { instance.matchSettings = value; } }
         public static List<RaceRecord> RaceRecords { get { return instance.raceRecords; } }
 
@@ -124,7 +122,6 @@ namespace Sanicball.Data
         public void LoadAll()
         {
             Load("GameSettings.json", ref gameSettings);
-            Load("GameKeybinds.json", ref keybinds);
             Load("MatchSettings.json", ref matchSettings);
             Load("Records.json", ref raceRecords);
         }
@@ -132,7 +129,6 @@ namespace Sanicball.Data
         public void SaveAll()
         {
             Save("GameSettings.json", gameSettings);
-            Save("GameKeybinds.json", keybinds);
             Save("MatchSettings.json", matchSettings);
             Save("Records.json", raceRecords);
         }

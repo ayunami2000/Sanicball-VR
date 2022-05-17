@@ -45,7 +45,6 @@ public class VRUIInputSystem : MonoBehaviour
             if (currentInput != null)
             {
                 SteamVR.instance.overlay.HideKeyboard();
-                // todo: check if OnKeyboardClosed gets called
                 if (currentInput == inpf)
                 {
                     stillOpenKeyboard = false;

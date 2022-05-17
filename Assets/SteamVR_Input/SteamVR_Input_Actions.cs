@@ -23,7 +23,7 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_sanicball_Jump;
         
-        private static SteamVR_Action_Boolean p_sanicball_Repawn;
+        private static SteamVR_Action_Boolean p_sanicball_Respawn;
         
         private static SteamVR_Action_Boolean p_sanicball_Brake;
         
@@ -61,11 +61,11 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Boolean sanicball_Repawn
+        public static SteamVR_Action_Boolean sanicball_Respawn
         {
             get
             {
-                return SteamVR_Actions.p_sanicball_Repawn.GetCopy<SteamVR_Action_Boolean>();
+                return SteamVR_Actions.p_sanicball_Respawn.GetCopy<SteamVR_Action_Boolean>();
             }
         }
         
@@ -123,7 +123,7 @@ namespace Valve.VR
                     SteamVR_Actions.sanicball_Move,
                     SteamVR_Actions.sanicball_Look,
                     SteamVR_Actions.sanicball_Jump,
-                    SteamVR_Actions.sanicball_Repawn,
+                    SteamVR_Actions.sanicball_Respawn,
                     SteamVR_Actions.sanicball_Brake,
                     SteamVR_Actions.sanicball_Next_Track,
                     SteamVR_Actions.sanicball_Click,
@@ -134,7 +134,7 @@ namespace Valve.VR
                     SteamVR_Actions.sanicball_Move,
                     SteamVR_Actions.sanicball_Look,
                     SteamVR_Actions.sanicball_Jump,
-                    SteamVR_Actions.sanicball_Repawn,
+                    SteamVR_Actions.sanicball_Respawn,
                     SteamVR_Actions.sanicball_Brake,
                     SteamVR_Actions.sanicball_Next_Track,
                     SteamVR_Actions.sanicball_Click,
@@ -147,7 +147,7 @@ namespace Valve.VR
                     SteamVR_Actions.sanicball_Hands};
             Valve.VR.SteamVR_Input.actionsBoolean = new Valve.VR.SteamVR_Action_Boolean[] {
                     SteamVR_Actions.sanicball_Jump,
-                    SteamVR_Actions.sanicball_Repawn,
+                    SteamVR_Actions.sanicball_Respawn,
                     SteamVR_Actions.sanicball_Brake,
                     SteamVR_Actions.sanicball_Next_Track,
                     SteamVR_Actions.sanicball_Click,
@@ -163,7 +163,7 @@ namespace Valve.VR
                     SteamVR_Actions.sanicball_Move,
                     SteamVR_Actions.sanicball_Look,
                     SteamVR_Actions.sanicball_Jump,
-                    SteamVR_Actions.sanicball_Repawn,
+                    SteamVR_Actions.sanicball_Respawn,
                     SteamVR_Actions.sanicball_Brake,
                     SteamVR_Actions.sanicball_Next_Track,
                     SteamVR_Actions.sanicball_Click,
@@ -176,7 +176,7 @@ namespace Valve.VR
             SteamVR_Actions.p_sanicball_Move = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/sanicball/in/Move")));
             SteamVR_Actions.p_sanicball_Look = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/sanicball/in/Look")));
             SteamVR_Actions.p_sanicball_Jump = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sanicball/in/Jump")));
-            SteamVR_Actions.p_sanicball_Repawn = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sanicball/in/Repawn")));
+            SteamVR_Actions.p_sanicball_Respawn = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sanicball/in/Respawn")));
             SteamVR_Actions.p_sanicball_Brake = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sanicball/in/Brake")));
             SteamVR_Actions.p_sanicball_Next_Track = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sanicball/in/Next Track")));
             SteamVR_Actions.p_sanicball_Click = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sanicball/in/Click")));
