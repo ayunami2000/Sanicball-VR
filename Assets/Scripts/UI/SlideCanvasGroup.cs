@@ -15,7 +15,6 @@ namespace Sanicball.UI
         private float pos = 0f;
         private Vector2 startPosition;
         private RectTransform rectTransform;
-        private BoxCollider boxCollider;
 
         public void Open()
         {
@@ -37,7 +36,6 @@ namespace Sanicball.UI
         private void Start()
         {
             rectTransform = GetComponent<RectTransform>();
-            boxCollider = GetComponent<BoxCollider>();
             cg = GetComponent<CanvasGroup>();
             startPosition = rectTransform.anchoredPosition;
             cg.interactable = isOpen;
@@ -73,9 +71,6 @@ namespace Sanicball.UI
             var smoothedPos = Mathf.SmoothStep(0f, 1f, pos);
 
             (transform as RectTransform).anchoredPosition = Vector2.Lerp(startPosition + closedPosition, startPosition, smoothedPos);
-            Vector3 tmpPos = (boxCollider as BoxCollider).center;
-            tmpPos.x = (transform as RectTransform).anchoredPosition.x - (startPosition.x / 2);
-            (boxCollider as BoxCollider).center = tmpPos;
         }
     }
 }

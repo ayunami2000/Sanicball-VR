@@ -167,31 +167,18 @@ namespace Sanicball.UI
 
         private void ShowMainHelp()
         {
-            string kbConfirm = GameInput.GetInputName(Keybind.Menu);
-            const string joyConfirm = "X";
-            string kbAction = GameInput.GetInputName(Keybind.Respawn);
-            const string joyAction = "Y";
-
-            string confirm = AssignedCtrlType == ControlType.Keyboard ? kbConfirm : joyConfirm;
-            string action = AssignedCtrlType == ControlType.Keyboard ? kbAction : joyAction;
+            string confirm = GameInput.GetInputName(Keybind.Menu);
+            string action = GameInput.GetInputName(Keybind.Respawn);
 
             helpTextField.text = string.Format("<b>{0}</b>: Change character\n<b>{1}</b>: Toggle ready to play", confirm, action);
         }
 
         private void ShowCharacterSelectHelp()
         {
-            const string kbLeft = "Left";
-            const string joyLeft = kbLeft;
-            const string kbRight = "Right";
-            const string joyRight = kbRight;
-            string kbConfirm = GameInput.GetInputName(Keybind.Menu);
-            const string joyConfirm = "X";
+            string joystick = GameInput.GetInputName(Keybind.CameraLeft);
+            string confirm = GameInput.GetInputName(Keybind.Menu);
 
-            string left = AssignedCtrlType == ControlType.Keyboard ? kbLeft : joyLeft;
-            string right = AssignedCtrlType == ControlType.Keyboard ? kbRight : joyRight;
-            string confirm = AssignedCtrlType == ControlType.Keyboard ? kbConfirm : joyConfirm;
-
-            helpTextField.text = string.Format("<b>{0}</b>/<b>{1}</b>: Select character\n<b>{2}</b>: Confirm", left, right, confirm);
+            helpTextField.text = string.Format("<b>{0}</b>: Select character\n<b>{2}</b>: Confirm", joystick, confirm);
         }
     }
 }

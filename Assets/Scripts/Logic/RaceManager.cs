@@ -110,7 +110,9 @@ namespace Sanicball.Logic
                         countdown.OnCountdownFinished += Countdown_OnCountdownFinished;
 
                         //Create race UI
-                        raceUI = Instantiate(raceUIPrefab);
+                        var c = GameObject.FindWithTag("MainCamera");
+                        raceUI = Instantiate(raceUIPrefab, c.transform);
+                        raceUI.GetComponent<Canvas>().worldCamera = c.GetComponent<Camera>();
                         raceUI.TargetManager = this;
 
                         //Create all balls
@@ -119,7 +121,8 @@ namespace Sanicball.Logic
                         //If there are no local players, create a spectator camera
                         if (!matchManager.Players.Any(a => a.ClientGuid == matchManager.LocalClientGuid))
                         {
-                            var specView = Instantiate(spectatorViewPrefab);
+                            var specView = Instantiate(spectatorViewPrefab, c.transform);
+                            specView.GetComponent<Canvas>().worldCamera = c.GetComponent<Camera>();
                             specView.TargetManager = this;
                             specView.Target = players[0];
                         }
@@ -248,7 +251,9 @@ namespace Sanicball.Logic
             foreach (RacePlayer p in players.Where(a => a.CtrlType != ControlType.None))
             {
                 //Create player UI
-                var playerUI = Instantiate(playerUIPrefab);
+                var c = GameObject.FindWithTag("MainCamera");
+                var playerUI = Instantiate(playerUIPrefab, c.transform);
+                playerUI.GetComponent<Canvas>().worldCamera = c.GetComponent<Camera>();
                 playerUI.TargetManager = this;
                 playerUI.TargetPlayer = p;
 

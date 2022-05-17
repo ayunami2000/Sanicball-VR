@@ -14,7 +14,7 @@ namespace Sanicball.Gameplay
             {
                 if (!attachedCamera)
                 {
-                    attachedCamera = GetComponent<Camera>();
+                    attachedCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
                 }
                 return attachedCamera;
             }

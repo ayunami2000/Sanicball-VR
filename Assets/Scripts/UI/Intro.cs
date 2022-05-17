@@ -57,10 +57,6 @@ namespace Sanicball.UI
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(0))
-            {
-                GoToMenu();
-            }
         }
 
         private void NextImage()

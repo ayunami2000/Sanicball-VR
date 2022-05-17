@@ -109,6 +109,7 @@ namespace Sanicball
 
         private void Update()
         {
+            if (aSource == null) return;
             if (fadeIn && aSource.volume < 0.5f)
             {
                 aSource.volume = Mathf.Min(aSource.volume + Time.deltaTime * 0.1f, 0.5f);

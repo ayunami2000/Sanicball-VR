@@ -135,7 +135,7 @@ namespace Sanicball.UI
             matchJoiningHelpField.text = "";
             if (anyLeft)
             {
-                matchJoiningHelpField.text += "Press <b>" + GameInput.GetInputName(Keybind.Menu) + "</b> to join with a keyboard. ";
+                matchJoiningHelpField.text += "Press <b>" + GameInput.GetInputName(Keybind.Menu) + "</b> to join.";
             }
         }
     }
