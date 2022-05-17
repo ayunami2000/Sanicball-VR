@@ -36,6 +36,7 @@ namespace Sanicball.UI
 		}
 
 		public void Show(string text) {
+			if (label == null) return;
 			label.text = text;
 			showTimer = 5;
 		}

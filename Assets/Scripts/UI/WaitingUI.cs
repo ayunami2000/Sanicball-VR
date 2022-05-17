@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Sanicball.Data;
+using SanicballCore;
 
 namespace Sanicball.UI
 {
@@ -22,12 +23,10 @@ namespace Sanicball.UI
 
         private void Update()
         {
-            /*
-            if (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown(KeyCode.JoystickButton6))
+            if (GameInput.IsRespawning(ControlType.Joystick1))
             {
                 ActiveData.GameSettings.showControlsWhileWaiting = !ActiveData.GameSettings.showControlsWhileWaiting;
             }
-            */
 
             controlsPanel.alpha = Mathf.Lerp(controlsPanel.alpha, ActiveData.GameSettings.showControlsWhileWaiting ? 1 : 0, Time.deltaTime * 20);
         }

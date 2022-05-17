@@ -60,7 +60,7 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/sanicball/in/next track"
+                     "output" : "/actions/sanicball/in/menu"
                   }
                },
                "mode" : "button",
@@ -105,20 +105,20 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/sanicball/in/menu"
-                  }
-               },
-               "mode" : "button",
-               "path" : "/user/hand/left/input/system"
-            },
-            {
-               "inputs" : {
-                  "click" : {
                      "output" : "/actions/sanicball/in/respawn"
                   }
                },
                "mode" : "button",
                "path" : "/user/hand/left/input/trigger"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/sanicball/in/next track"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/left/input/grip"
             }
          ]
       }

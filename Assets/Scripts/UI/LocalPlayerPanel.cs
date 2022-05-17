@@ -178,7 +178,7 @@ namespace Sanicball.UI
             string joystick = GameInput.GetInputName(Keybind.CameraLeft);
             string confirm = GameInput.GetInputName(Keybind.Menu);
 
-            helpTextField.text = string.Format("<b>{0}</b>: Select character\n<b>{2}</b>: Confirm", joystick, confirm);
+            helpTextField.text = string.Format("<b>{0}</b>: Select character\n<b>{1}</b>: Confirm", joystick, confirm);
         }
     }
 }

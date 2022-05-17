@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 11495830}
   - component: {fileID: 22316070}
   - component: {fileID: 11449842}
+  - component: {fileID: 114079509527632164}
   m_Layer: 0
   m_Name: SpectatorView
   m_TagString: Untagged
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120332}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -97,6 +98,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114079509527632164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1702a7750b44fe64692488b6a18f5f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &162850
 GameObject:
   m_ObjectHideFlags: 0

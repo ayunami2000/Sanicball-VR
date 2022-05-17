@@ -66,13 +66,16 @@ namespace Sanicball
         {
             if (ctrlType != ControlType.Joystick1) return Vector3.zero;
             Vector2 vec2 = SteamVR_Actions.sanicball_Move.axis;
+            //return new Vector3(vec2.x * 1.2f, 0, vec2.y * 1.2f);
             return new Vector3(vec2.x, 0, vec2.y);
         }
 
         public static Vector2 CameraVector(ControlType ctrlType)
         {
             if (ctrlType != ControlType.Joystick1) return Vector2.zero;
-            return SteamVR_Actions.sanicball_Look.axis;
+            Vector2 vec2 = SteamVR_Actions.sanicball_Look.axis;
+            //return new Vector2(vec2.x * 1.2f, vec2.y * 1.2f);
+            return vec2;
         }
 
         public static bool UIUp(ControlType ctrlType)
@@ -131,6 +134,11 @@ namespace Sanicball
         public static bool IsOpeningChat()
         {
             return false;
+        }
+
+        public static bool IsPausing()
+        {
+            return SteamVR_Actions.sanicball_Menu.state && !SteamVR_Actions.sanicball_Menu.lastState;
         }
     }
 }

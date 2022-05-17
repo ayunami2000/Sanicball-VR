@@ -13,15 +13,43 @@ public class VRUIInputSystem : MonoBehaviour
 
     public void Awake()
     {
-        laserPointer.PointerIn += HandlePointerIn;
-        laserPointer.PointerOut += HandlePointerOut;
-        laserPointer.PointerClick += HandleTriggerClicked;
         SteamVR_Events.System(EVREventType.VREvent_KeyboardClosed).Listen(OnKeyboardClosed);
+        if (laserPointer == null)
+        {
+            var go = GameObject.FindWithTag("MainCamera");
+            if (go != null)
+            {
+                laserPointer = go.GetComponentInChildren(typeof(SteamVR_LaserPointer)) as SteamVR_LaserPointer;
+            }
+        }
+        if (laserPointer != null)
+        {
+            laserPointer.PointerIn += HandlePointerIn;
+            laserPointer.PointerOut += HandlePointerOut;
+            laserPointer.PointerClick += HandleTriggerClicked;
+        }
+    }
+
+    public void Update()
+    {
+        if (laserPointer == null)
+        {
+            var go = GameObject.FindWithTag("MainCamera");
+            if (go != null)
+            {
+                laserPointer = go.GetComponentInChildren(typeof(SteamVR_LaserPointer)) as SteamVR_LaserPointer;
+            }
+            if (laserPointer != null)
+            {
+                laserPointer.PointerIn += HandlePointerIn;
+                laserPointer.PointerOut += HandlePointerOut;
+                laserPointer.PointerClick += HandleTriggerClicked;
+            }
+        }
     }
 
     private void OnKeyboardClosed(VREvent_t args)
     {
-        Debug.Log(currentInput);
         if (currentInput != null)
         {
             System.Text.StringBuilder textBuilder = new System.Text.StringBuilder(1024);
@@ -61,14 +89,11 @@ public class VRUIInputSystem : MonoBehaviour
         {
             btnhz.onClickRight.Invoke();
         }
-        else
+        Button btn = e.target.gameObject.GetComponent<Button>();
+        if (btn != null)
         {
-            Button btn = e.target.gameObject.GetComponent<Button>();
-            if (btn != null)
-            {
-                //ExecuteEvents.Execute(btn.gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
-                btn.onClick.Invoke();
-            }
+            //ExecuteEvents.Execute(btn.gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
+            btn.onClick.Invoke();
         }
     }
 

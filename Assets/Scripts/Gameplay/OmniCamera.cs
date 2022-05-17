@@ -84,10 +84,12 @@ namespace Sanicball.Gameplay
                 }
 
                 //Set camera FOV to get higher with more velocity
-                AttachedCamera.fieldOfView = Mathf.Lerp(AttachedCamera.fieldOfView, Mathf.Min(60f + (Target.velocity.magnitude), 100f) + fovOffset, Time.deltaTime * 20);
+                //doesnt work in vr anyways
+                //AttachedCamera.fieldOfView = Mathf.Lerp(AttachedCamera.fieldOfView, Mathf.Min(60f + (Target.velocity.magnitude), 100f) + fovOffset, Time.deltaTime * 20);
 
                 currentDirectionWithOffset = Quaternion.Slerp(currentDirectionWithOffset, currentDirection * targetDirectionOffset, Time.deltaTime * 6);
-                transform.position = Target.transform.position + Vector3.up * orbitHeight + currentDirectionWithOffset * (Vector3.back * orbitDistance);
+                //transform.position = Target.transform.position + Vector3.up * orbitHeight + currentDirectionWithOffset * (Vector3.back * orbitDistance);
+                transform.position = Target.transform.position;
                 transform.rotation = currentDirectionWithOffset;
             }
         }

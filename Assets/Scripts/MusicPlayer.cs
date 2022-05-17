@@ -61,10 +61,7 @@ namespace Sanicball
 
         private void Start()
         {
-            var c = GameObject.FindWithTag("MainCamera");
-            playerCanvas = Instantiate(playerCanvasPrefab, c.transform);
-            playerCanvas.GetComponent<Canvas>().worldCamera = c.GetComponent<Camera>();
-            playerCanvas.GetComponent<RectTransform>().sizeDelta = new Vector2(UnityEngine.XR.XRSettings.eyeTextureWidth, UnityEngine.XR.XRSettings.eyeTextureHeight / 2);
+            playerCanvas = Instantiate(playerCanvasPrefab);
             if (playerCanvasLobbyOffset) 
             {
                 playerCanvas.lobbyOffset = true;

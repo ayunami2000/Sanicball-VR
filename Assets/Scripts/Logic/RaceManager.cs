@@ -110,9 +110,7 @@ namespace Sanicball.Logic
                         countdown.OnCountdownFinished += Countdown_OnCountdownFinished;
 
                         //Create race UI
-                        var c = GameObject.FindWithTag("MainCamera");
-                        raceUI = Instantiate(raceUIPrefab, c.transform);
-                        raceUI.GetComponent<Canvas>().worldCamera = c.GetComponent<Camera>();
+                        raceUI = Instantiate(raceUIPrefab);
                         raceUI.TargetManager = this;
 
                         //Create all balls
@@ -121,8 +119,7 @@ namespace Sanicball.Logic
                         //If there are no local players, create a spectator camera
                         if (!matchManager.Players.Any(a => a.ClientGuid == matchManager.LocalClientGuid))
                         {
-                            var specView = Instantiate(spectatorViewPrefab, c.transform);
-                            specView.GetComponent<Canvas>().worldCamera = c.GetComponent<Camera>();
+                            var specView = Instantiate(spectatorViewPrefab);
                             specView.TargetManager = this;
                             specView.Target = players[0];
                         }
@@ -251,9 +248,7 @@ namespace Sanicball.Logic
             foreach (RacePlayer p in players.Where(a => a.CtrlType != ControlType.None))
             {
                 //Create player UI
-                var c = GameObject.FindWithTag("MainCamera");
-                var playerUI = Instantiate(playerUIPrefab, c.transform);
-                playerUI.GetComponent<Canvas>().worldCamera = c.GetComponent<Camera>();
+                var playerUI = Instantiate(playerUIPrefab);
                 playerUI.TargetManager = this;
                 playerUI.TargetPlayer = p;
 
@@ -347,7 +342,7 @@ namespace Sanicball.Logic
         private void Update()
         {
             //In offline mode, send a RaceStartMessage once Space (Or A on any joystick) is pressed
-            if (!matchManager.OnlineMode && CurrentState == RaceState.Waiting && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)))
+            if (!matchManager.OnlineMode && CurrentState == RaceState.Waiting && (GameInput.IsOpeningMenu(ControlType.Joystick1) || GameInput.IsRespawning(ControlType.Joystick1)))
             {
                 messenger.SendMessage(new StartRaceMessage());
             }
