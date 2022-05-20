@@ -6,6 +6,7 @@ using Sanicball.Logic;
 using SanicballCore;
 using UnityEngine;
 using UnityEngine.UI;
+using Sanicball.Gameplay;
 
 namespace Sanicball.UI
 {
@@ -43,8 +44,7 @@ namespace Sanicball.UI
         [SerializeField]
         private RectTransform markerContainer;
 
-        private Marker checkpointMarker;
-        private List<Marker> playerMarkers = new List<Marker>();
+        private Checkpoint lastCheckpoint;
 
         private RacePlayer targetPlayer;
         private RaceManager targetManager;
@@ -60,11 +60,6 @@ namespace Sanicball.UI
                 {
                     targetPlayer.NextCheckpointPassed -= TargetPlayer_NextCheckpointPassed;
                     targetPlayer.Respawned -= TargetPlayer_Respawned;
-                    Destroy(checkpointMarker.gameObject);
-                    foreach (Marker m in playerMarkers)
-                    {
-                        Destroy(m.gameObject);
-                    }
                 }
 
                 targetPlayer = value;
@@ -72,34 +67,19 @@ namespace Sanicball.UI
                 targetPlayer.NextCheckpointPassed += TargetPlayer_NextCheckpointPassed;
                 targetPlayer.Respawned += TargetPlayer_Respawned;
 
-                //Marker following next checkpoint
-                checkpointMarker = Instantiate(markerPrefab);
-                checkpointMarker.transform.SetParent(markerContainer, false);
-                checkpointMarker.Text = "Checkpoint";
-                checkpointMarker.Clamp = true;
-
                 //Markers following each player
                 for (int i = 0; i < TargetManager.PlayerCount; i++)
                 {
                     RacePlayer p = TargetManager[i];
                     if (p == TargetPlayer) continue;
 
-                    var playerMarker = Instantiate(markerPrefab);
-                    playerMarker.transform.SetParent(markerContainer, false);
-                    playerMarker.Text = p.Name;
-                    playerMarker.Target = p.Transform;
-                    playerMarker.Clamp = false;
-
-                    //Disabled for now, glitchy as fuck
-                    //playerMarker.HideImageWhenInSight = true;
+                    var playerMarker = p.Ball.gameObject.transform.Find("Nametag").gameObject.GetComponent<TMPro.TextMeshPro>();
+                    playerMarker.text = p.Name;
 
                     Data.CharacterInfo character = ActiveData.Characters[p.Character];
-                    //playerMarker.Sprite = character.icon;
                     Color c = character.color;
-                    c.a = 0.2f;
-                    playerMarker.Color = c;
-
-                    playerMarkers.Add(playerMarker);
+                    c.a = 0.8f;
+                    playerMarker.color = c;
                 }
             }
         }
@@ -245,16 +225,13 @@ namespace Sanicball.UI
             }
 
             //Checkpoint marker
-            if (TargetPlayer.NextCheckpoint != null)
-                checkpointMarker.Target = TargetPlayer.NextCheckpoint.transform;
-            else
-                checkpointMarker.Target = null;
-            checkpointMarker.CameraToUse = TargetCamera;
-
-            playerMarkers.RemoveAll(a => a == null); //Remove destroyed markers from the list (Markers are destroyed if the player they're following leaves)
-            foreach (Marker m in playerMarkers.ToList())
+            if (lastCheckpoint != TargetPlayer.NextCheckpoint)
             {
-                m.CameraToUse = TargetCamera;
+                if (lastCheckpoint != null)
+                    lastCheckpoint.transform.Find("Nametag").gameObject.active = false;
+                if (TargetPlayer.NextCheckpoint != null)
+                    TargetPlayer.NextCheckpoint.transform.Find("Nametag").gameObject.active = true;
+                lastCheckpoint = TargetPlayer.NextCheckpoint;
             }
         }
     }

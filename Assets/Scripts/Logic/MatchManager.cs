@@ -38,8 +38,6 @@ namespace Sanicball.Logic
         private RaceManager raceManagerPrefab;
         [SerializeField]
         private UI.Popup disconnectedPopupPrefab;
-        [SerializeField]
-        private Marker markerPrefab = null;
 
         #endregion Exposed fields
 
@@ -396,12 +394,24 @@ namespace Sanicball.Logic
                 {
                     UI.PauseMenu menu = Instantiate(pauseMenuPrefab);
                     menu.OnlineMode = OnlineMode;
+                    if (!inLobby)
+                    {
+                        var evsys = FindObjectOfType<VRUIInputSystem>();
+                        if (evsys)
+                            evsys.laserPointer.holder.active = true;
+                    }
                 }
                 else
                 {
                     var menu = FindObjectOfType<UI.PauseMenu>();
                     if (menu)
                         Destroy(menu.gameObject);
+                    if (!inLobby)
+                    {
+                        var evsys = FindObjectOfType<VRUIInputSystem>();
+                        if (evsys)
+                            evsys.laserPointer.holder.active = false;
+                    }
                 }
             }
 
@@ -574,11 +584,9 @@ namespace Sanicball.Logic
 
             if (player.ClientGuid != myGuid)
             {
-                Marker marker = Instantiate(markerPrefab);
-                marker.transform.SetParent(LobbyReferences.Active.MarkerContainer, false);
-                marker.Color = Color.clear;
-                marker.Text = name;
-                marker.Target = player.BallObject.transform;
+                var marker = player.BallObject.transform.Find("Nametag").gameObject.GetComponent<TMPro.TextMeshPro>();
+                marker.color = Color.white;
+                marker.text = name;
             }
         }
     }

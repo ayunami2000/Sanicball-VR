@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1702a7750b44fe64692488b6a18f5f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullScreen: 0
 --- !u!1 &149312
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class VRUIInputSystem : MonoBehaviour
             var go = GameObject.FindWithTag("MainCamera");
             if (go != null)
             {
-                laserPointer = go.GetComponentInChildren(typeof(SteamVR_LaserPointer)) as SteamVR_LaserPointer;
+                laserPointer = go.transform.parent.gameObject.GetComponentInChildren(typeof(SteamVR_LaserPointer)) as SteamVR_LaserPointer;
             }
         }
         if (laserPointer != null)
@@ -37,7 +37,7 @@ public class VRUIInputSystem : MonoBehaviour
             var go = GameObject.FindWithTag("MainCamera");
             if (go != null)
             {
-                laserPointer = go.GetComponentInChildren(typeof(SteamVR_LaserPointer)) as SteamVR_LaserPointer;
+                laserPointer = go.transform.parent.gameObject.GetComponentInChildren(typeof(SteamVR_LaserPointer)) as SteamVR_LaserPointer;
             }
             if (laserPointer != null)
             {

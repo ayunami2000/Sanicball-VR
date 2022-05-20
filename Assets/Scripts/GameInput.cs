@@ -126,6 +126,12 @@ namespace Sanicball
             return SteamVR_Actions.sanicball_Select.state && !SteamVR_Actions.sanicball_Select.lastState;
         }
 
+        public static bool IsClicking(ControlType ctrlType)
+        {
+            if (ctrlType != ControlType.Joystick1) return false;
+            return SteamVR_Actions.sanicball_Click.state && !SteamVR_Actions.sanicball_Click.lastState;
+        }
+
         public static bool IsChangingSong()
         {
             return SteamVR_Actions.sanicball_Next_Track.state && !SteamVR_Actions.sanicball_Next_Track.lastState;

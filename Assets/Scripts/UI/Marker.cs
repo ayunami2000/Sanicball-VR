@@ -45,6 +45,9 @@ namespace Sanicball.UI
                 return;
             }
 
+            Quaternion xd = cam.transform.localRotation;
+            cam.transform.localRotation = new Quaternion(0, xd.y, 0, xd.w);
+
             var relativePosition = cam.transform.InverseTransformPoint(target.position);
             relativePosition.z = Mathf.Max(relativePosition.z, 1);
 
@@ -67,6 +70,8 @@ namespace Sanicball.UI
                 }
                 image.color = new Color(image.color.r, image.color.g, image.color.b, show ? colorAlpha : 0);
             }
+
+            cam.transform.localRotation = xd;
         }
     }
 }

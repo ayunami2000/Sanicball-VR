@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 11433464}
   - component: {fileID: 11491130}
   - component: {fileID: 22572642}
+  - component: {fileID: 114234778697889376}
   m_Layer: 5
   m_Name: ChatCanvas
   m_TagString: Untagged
@@ -50,7 +51,7 @@ Canvas:
   m_GameObject: {fileID: 100894}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -69,7 +70,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100894}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -129,6 +130,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &114234778697889376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1702a7750b44fe64692488b6a18f5f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &103156
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +273,7 @@ GameObject:
   - component: {fileID: 11404532}
   - component: {fileID: 11407212}
   - component: {fileID: 11484248}
+  - component: {fileID: 685589619406366912}
   m_Layer: 5
   m_Name: InputField
   m_TagString: Untagged
@@ -427,6 +441,19 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   delegates: []
+--- !u!65 &685589619406366912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &159926
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 646.71375}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &22280968

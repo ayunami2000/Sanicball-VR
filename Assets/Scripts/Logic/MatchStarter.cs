@@ -96,7 +96,7 @@ namespace Sanicball.Logic
                             break;
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (GameInput.IsBraking(ControlType.Joystick1))
                 {
                     popupHandler.CloseActivePopup();
                     joiningClient.Disconnect("Cancelled");
